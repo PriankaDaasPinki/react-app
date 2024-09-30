@@ -1,10 +1,11 @@
 import React from "react";
 // import "../CSS/style.css";
 
-export default function Card(props) {  
-  const { titleText : title, descriptionText : descripton } = props;
+export default function Card(props) {
+  const { titleText: title, descriptionText: descripton, Image: image } = props;
   return (
     <div className="card col-sm-10 col-md-5">
+      <img className="productImageCart" src={image} alt="cartImageOfProduct" />
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>
       <div className="cardFooter">
@@ -14,11 +15,10 @@ export default function Card(props) {
   );
 }
 
-
-export function Card2Cart(props) {  
-  const { titleText : title, descriptionText : descripton } = props;
+export function Card2Cart(props) {
+  const { titleText: title, descriptionText: descripton } = props;
   return (
-    <div className="card col-md-11">
+    <div className="card col-md-10">
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>
       <div className="cardFooter">
@@ -28,9 +28,6 @@ export function Card2Cart(props) {
   );
 }
 
-
-export function Header(props) {
-  return <h1 className="headingStyle">{props.textH}</h1>;
+export function cardHeader(props) {
+  return <h1 className="headingStyle mt-5">{props.textH}</h1>;
 }
-
-

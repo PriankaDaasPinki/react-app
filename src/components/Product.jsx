@@ -5,14 +5,24 @@ const productNameStyle = {
   borderRadius: "7px",
   color: "white",
   textAlign: "center",
-  padding: "20px",
+  fontFamily: "Arial",
+  fontSize: "1.3rem",
+  padding: "20px 0px",
+  width: "100%",
 };
 
 const quantityButtonStyle = {
   alignItems: "center",
   color: "black",
+  fontFamily: "Arial",
   textAlign: "center",
   padding: "20px",
+};
+
+const productImage = {
+  width: "3rem",
+  height: "auto",
+  marginRight: "1rem",
 };
 
 var ddate = new Date().getDate();
@@ -22,34 +32,32 @@ var dYear = new Date().getFullYear();
 var date = ddate + "/" + dMonth + "/" + dYear;
 
 export default function Product(productListAll) {
+  const { eachProduct: product } = productListAll;
   return (
-    <div className="row">
+    <div className="row m-2">
       <div className="col-md-5">
-        <h3 style={productNameStyle}>
-          {productListAll.eachProduct.Name} &nbsp;
-          <span className="badge text-bg-secondary">
-            ৳ {productListAll.eachProduct.Price}
-          </span>
-        </h3>
+        <div style={productNameStyle}>
+          <img style={productImage} src={product.Image} alt="productImage" />
+          {product.Name} &nbsp;
+          <span className="badge text-bg-secondary">৳ {product.Price}</span>
+        </div>
       </div>
-      <div className="col-md-3" style={quantityButtonStyle}>
+      <div className="col-md-2" style={quantityButtonStyle}>
         <div className="btn-group" role="group" aria-label="Basic example">
           <button type="button" className="btn btn-danger">
             -
           </button>
           <button type="button" className="btn btn-primary">
-            {productListAll.eachProduct.Quantity}
+            {product.Quantity}
           </button>
           <button type="button" className="btn btn-success">
             +
           </button>
         </div>
       </div>
-      <div className="col-md-2" style={quantityButtonStyle}>
+      <div className="col-md-3" style={quantityButtonStyle}>
         <button type="button" className="btn btn-warning">
-          ৳{" "}
-          {productListAll.eachProduct.Quantity *
-            productListAll.eachProduct.Price}
+          ৳ {product.Quantity * product.Price}
         </button>
       </div>
       <div className="col-md-2 dateStyle">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './Product.js';
+import Product from './Product.jsx';
 
 //This is a component. Component name is ProductList
 

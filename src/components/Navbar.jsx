@@ -5,9 +5,9 @@ class Navbar extends React.Component {
   state = {};
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">
+          <a className="navbar-brand websiteTitle" href="./App.js">
             Prianka's World
           </a>
           <button
@@ -24,49 +24,49 @@ class Navbar extends React.Component {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a className="nav-link active" aria-current="page" href="./index.js">
                   Home
                 </a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="./index.html">
-                  Link
+                  News Feed
                 </a>
               </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="./products.jsx"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  Products
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Action
+                    <a className="dropdown-item" href="./products.jsx">
+                      All Product
                     </a>
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Another action
+                    <a className="dropdown-item" href="./products.jsx">
+                      Product
                     </a>
                   </li>
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
+                    <a className="dropdown-item" href="../README.md">
+                      Contact Us
                     </a>
                   </li>
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link disabled" aria-disabled="true">
-                  Disabled
+                <a className="nav-link disabled" aria-disabled="true" href='./about_us'>
+                  About Us
                 </a>
               </li>
             </ul>

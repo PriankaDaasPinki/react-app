@@ -9,9 +9,15 @@
   align-items: center;
 }
 
+.websiteTitle{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 2rem;
+}
+
 .headingStyle {
   text-align: center;
-  padding: 15px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .itemListContainer{
@@ -30,15 +36,17 @@
 
 .card {
   margin: 25px;
-  display: inline-block;
   background-color: aquamarine;
-  padding: 10px;
   box-shadow: 1px 1px 10px 10px gray;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: top;
+  height: 40rem;
 }
 
 .cardTitle {
-  padding: 6px;
+  padding: 10px;
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
@@ -50,11 +58,13 @@
 
 .cardBody {
   text-align: center;
-  padding: 10px 20px;
-  max-width: 100%; /* From here to 41 no line kora hoyeche width porjonto gele jeno ... show kore tai */
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3 rem;
+  /* padding: 10px 20px; */
+  /* max-width: 100%; /* From here to 41 no line kora hoyeche width porjonto gele jeno ... show kore tai
   overflow: hidden;
   white-space: nowrap;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis; */
 }
 
 .cardFooter {
@@ -75,4 +85,32 @@
     justify-content: center;
     margin: 0px;
   }
+}
+
+.productImageCart{
+  height: auto;
+  width: 21.3rem;
+  margin-top: 5%;
+}
+
+.sideBar{
+  position: fixed;
+  width: 15rem;
+  height: 100%;
+  color: white;
+  font-size: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3rem;
+
+  .btn{
+    --bs-btn-color: white;
+  }
+
+  .styleCollapse{
+    padding-left: 1rem;
+  }
+}
+
+a{
+  text-decoration: none;
 }
