@@ -47,28 +47,14 @@ const App = () => {
                 Find the perfect match for your lifestyle today!
               </p>
               <hr />
-              <div className="row">
-                <div className="col-md-6">
-                  <div className="card shadow-sm">
-                    <div className="card-body">
-                      <h5 className="card-title">Statistics</h5>
-                      <p className="card-text">
-                        Here you can track your progress.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-md-6">
-                  <div className="card shadow-sm">
-                    <div className="card-body">
-                      <h5 className="card-title">Notifications</h5>
-                      <p className="card-text">
-                        Stay up to date with the latest alerts.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <main className="container mt-2">
+                <div className="row itemRow">{items}</div>
+                {/* <Header textH="" className="headingStyle" /> */}
+                <Card2Cart
+                  titleText="List of Cart Product"
+                  descriptionText={<ProductList productModule={Data} />}
+                />
+              </main>
             </div>
           </main>
         </div>

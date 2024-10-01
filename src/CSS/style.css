@@ -14,6 +14,10 @@
   font-size: 1.5rem;
 }
 
+.itemRow{
+  justify-content: space-evenly;
+}
+
 /* .headingStyle {
   text-align: center;
   padding: 10px;
@@ -42,7 +46,19 @@
   display: flex;
   align-items: center;
   justify-content: top;
-  height: 40rem;
+  padding: 20px;
+}
+
+.card2 {
+  margin: 25px;
+  background-color: aquamarine;
+  box-shadow: 1px 1px 10px 10px gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  padding: 20px;
 }
 
 .cardTitle {
@@ -89,7 +105,7 @@
 
 .productImageCart{
   height: auto;
-  width: 21.3rem;
+  width: 100%;
   margin-top: 5%;
 }
 

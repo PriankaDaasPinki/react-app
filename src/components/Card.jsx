@@ -8,9 +8,9 @@ export default function Card(props) {
       <img className="productImageCart" src={image} alt="cartImageOfProduct" />
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>
-      <div className="cardFooter">
+      {/* <div className="cardFooter">
         Copyright<sup> © </sup>Prianka's World
-      </div>
+      </div> */}
     </div>
   );
 }
@@ -18,7 +18,7 @@ export default function Card(props) {
 export function Card2Cart(props) {
   const { titleText: title, descriptionText: descripton } = props;
   return (
-    <div className="card col-md-10">
+    <div className="card2 col-md-10">
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>
       <div className="cardFooter">
