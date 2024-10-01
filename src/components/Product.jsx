@@ -1,4 +1,5 @@
 import React from "react";
+import STATE from "./State/state";
 
 const productNameStyle = {
   backgroundColor: "purple",
@@ -42,20 +43,19 @@ export default function Product(productListAll) {
           <span className="badge text-bg-secondary">৳ {product.Price}</span>
         </div>
       </div>
-      <div className="col-md-2" style={quantityButtonStyle}>
+      <div className="col-md-3" style={quantityButtonStyle}>
         <div className="btn-group" role="group" aria-label="Basic example">
-          <button type="button" className="btn btn-danger">
-            -
-          </button>
-          <button type="button" className="btn btn-primary">
+        <STATE className="btn btn-danger" />
+          
+          {/* <button type="button" className="btn btn-primary">
             {product.Quantity}
           </button>
           <button type="button" className="btn btn-success">
             +
-          </button>
+          </button> */}
         </div>
       </div>
-      <div className="col-md-3" style={quantityButtonStyle}>
+      <div className="col-md-2" style={quantityButtonStyle}>
         <button type="button" className="btn btn-warning">
           ৳ {product.Quantity * product.Price}
         </button>
