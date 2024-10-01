@@ -79,7 +79,7 @@ function Sidebar() {
           </div>
         </li>
         <li className="mb-1">
-            <BiPurchaseTag />
+          <BiPurchaseTag />
           <button
             className="btn btn-toggle align-items-center rounded collapsed"
             data-bs-toggle="collapse"
@@ -115,7 +115,7 @@ function Sidebar() {
         </li>
         <li className="border-top my-3"></li>
         <li className="mb-1">
-            <VscAccount />
+          <VscAccount />
           <button
             className="btn btn-toggle align-items-center rounded"
             data-bs-toggle="collapse"

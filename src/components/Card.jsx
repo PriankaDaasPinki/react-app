@@ -29,5 +29,5 @@ export function Card2Cart(props) {
 }
 
 export function cardHeader(props) {
-  return <h1 className="headingStyle mt-5">{props.textH}</h1>;
+  return <>{props.textH}</>;
 }
