@@ -3,18 +3,18 @@
   padding: 0;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.websiteTitle{
+.websiteTitle {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
 }
 
-.itemRow{
+.itemRow {
   justify-content: space-evenly;
 }
 
@@ -24,7 +24,7 @@
   font-family: Arial, Helvetica, sans-serif;
 } */
 
-.itemListContainer{
+.itemListContainer {
   margin: 20px;
   display: flex;
   justify-content: center;
@@ -38,12 +38,12 @@
   border-radius: 10px;
 }
 
-.card {
+.Card {
   margin: 25px;
-  background-color: aquamarine;
   box-shadow: 1px 1px 10px 10px gray;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: top;
   padding: 20px;
@@ -51,7 +51,6 @@
 
 .card2 {
   margin: 25px;
-  background-color: aquamarine;
   box-shadow: 1px 1px 10px 10px gray;
   border-radius: 10px;
   display: flex;
@@ -103,13 +102,13 @@
   }
 }
 
-.productImageCart{
+.productImageCart {
   height: auto;
   width: 100%;
   margin-top: 5%;
 }
 
-.sideBar{
+/* .sideBar {
   position: fixed;
   width: 15rem;
   height: 100%;
@@ -118,15 +117,15 @@
   font-family: Arial, Helvetica, sans-serif;
   padding: 3rem;
 
-  .btn{
+  .btn {
     --bs-btn-color: white;
   }
 
-  .styleCollapse{
+  .styleCollapse {
     padding-left: 1rem;
   }
-}
+} */
 
-a{
+a {
   text-decoration: none;
 }

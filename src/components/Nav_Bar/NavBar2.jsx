@@ -2,7 +2,6 @@ import React from "react";
 import { GiWorld } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 
-
 const Navbar2 = ({ toggleSidebar }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark fixed-top">
@@ -23,7 +22,11 @@ const Navbar2 = ({ toggleSidebar }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="./index.js">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="./index.js"
+              >
                 Home
               </a>
             </li>
@@ -68,15 +71,29 @@ const Navbar2 = ({ toggleSidebar }) => {
             </li>
           </ul>
           <form className="d-flex">
-            <input
+            {/* <input
               className="form-control me-2"
               type="search"
               placeholder="Search"
               aria-label="Search"
-            />
-            <button className="btn btn-outline-light" type="submit">
+            /> */}
+
+            <div class="search-bar">
+              <IoSearch className="search-icon"/>
+              <input
+                type="text"
+                name="search"
+                placeholder="Search on Prianka's World"
+                class="search-input"
+                autocomplete="on"
+              />
+            </div>
+
+
+            {/* <img class="search-icon" src="https://darksoul-codepen.github.io/search-icon.png" /> */}
+            {/* <button className="btn btn-outline-light" type="submit">
               <IoSearch />
-            </button>
+            </button> */}
           </form>
         </div>
       </div>

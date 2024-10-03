@@ -4,7 +4,7 @@ import React from "react";
 export default function Card(props) {
   const { titleText: title, descriptionText: descripton, Image: image } = props;
   return (
-    <div className="card col-sm-10 col-md-5">
+    <div className="Card col-sm-10 col-md-5">
       <img className="productImageCart" src={image} alt="cartImageOfProduct" />
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>

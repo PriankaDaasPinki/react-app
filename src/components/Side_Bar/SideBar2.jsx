@@ -1,10 +1,51 @@
 import React from "react";
-import { BiHome, BiPurchaseTag } from "react-icons/bi";
+import { BiPurchaseTag } from "react-icons/bi";
 import { IoSettingsOutline } from "react-icons/io5";
+import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
 import { VscAccount } from "react-icons/vsc";
 
 const Sidebar2 = ({ isSidebarOpen }) => {
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+
+  // Toggle the dropdown state
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen(!isDropdownOpen);
+  // };
+
+  // const navLink = document.querySelectorAll('.nav-link');
+  // const navLinkToRemove = document.querySelectorAll('.active');
+
+  // navLink.forEach(navLink => {
+  //   navLink.addEventListener('click',() => {
+  //     // document.querySelectorAll('activeItem')?.classList.remove('activeItem');
+  //     navLink.classList.add('activeItem');
+  //     // navLink.classList.remove('active');
+  //   });
+  // });
+
+  const handleButtonClick = (event) => {
+    //All dropdown can active at a time
+    event.currentTarget.classList.toggle("activeItem");
+    const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
+    iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
+
+    //One dropdown can active at a time
+      // const selectAllActive = document.querySelectorAll(".activeItem");
+      // selectAllActive.forEach((active) => {
+      //   active.classList.remove("activeItem");
+      // });
+      // event.currentTarget.classList.add("activeItem");
+      // const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
+      // iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
+
+    // if (iconElement) {
+    //   iconElement.classList.toggle('iconSideBarDropArrow'); // Toggle a class (for example, rotate it)
+    // }
+    // iconElement.classList.toggle("iconSideBarDropArrow");
+    // transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)"
+  };
+
   return (
     <div
       id="sidebar"
@@ -12,155 +53,169 @@ const Sidebar2 = ({ isSidebarOpen }) => {
         isSidebarOpen ? "active" : ""
       }`}
     >
-      <h5 className="text-uppercase">Navigation</h5>
+      {/* <h5 className="text-uppercase">Navigation</h5> */}
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
+          <p
+            className="nav-link text-light"
+            onClick={(event) => handleButtonClick(event)}
+            data-bs-toggle="collapse"
+            data-bs-target="#dashboard-collapse"
+          >
             <RxDashboard className="iconSideBar" />
-            <button
-              className="btn btn-toggle align-items-center rounded collapsed btnSideBar"
-              data-bs-toggle="collapse"
-              data-bs-target="#dashboard-collapse"
-              aria-expanded="false"
-            >
-              Dashboard
-            </button>
-            <div className="collapse styleCollapse" id="dashboard-collapse">
-              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Overview
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Weekly
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Monthly
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Annually
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </a>
+            Dashboard
+            <RiArrowDropDownLine className="iconSideBar iconSideBarDrop" />
+          </p>
+          <div
+            className="collapse styleCollapse collapseStyle"
+            id="dashboard-collapse"
+          >
+            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Overview
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Weekly
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Monthly
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Annually
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
+          <p
+            className="nav-link text-light linkSideBar"
+            onClick={(event) => handleButtonClick(event)}
+            data-bs-toggle="collapse"
+            data-bs-target="#orders-collapse"
+          >
             <BiPurchaseTag className="iconSideBar" />
-            <button
-              className="btn btn-toggle align-items-center rounded collapsed btnSideBar"
-              data-bs-toggle="collapse"
-              data-bs-target="#orders-collapse"
-              aria-expanded="false"
-            >
-              Orders
-            </button>
-            <div className="collapse show styleCollapse" id="orders-collapse">
-              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    New
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Processed
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Shipped
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Returned
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </a>
+            Orders
+            <RiArrowDropDownLine className="iconSideBar iconSideBarDrop" />
+          </p>
+          <div
+            className="collapse styleCollapse collapseStyle"
+            id="orders-collapse"
+          >
+            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  New
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Processed
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Shipped
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Returned
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
+          <p
+            className="nav-link text-light linkSideBar"
+            onClick={(event) => handleButtonClick(event)}
+            data-bs-toggle="collapse"
+            data-bs-target="#account-collapse"
+          >
             <VscAccount className="iconSideBar" />
-            <button
-              className="btn btn-toggle align-items-center rounded btnSideBar"
-              data-bs-toggle="collapse"
-              data-bs-target="#account-collapse"
-              aria-expanded="true"
-            >
-              Account
-            </button>
-            <div className="collapse show styleCollapse" id="account-collapse">
-              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Create New...
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Change Account
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </a>
+            Account
+            <RiArrowDropDownLine className="iconSideBar iconSideBarDrop" />
+          </p>
+          <div
+            className="collapse styleCollapse collapseStyle"
+            id="account-collapse"
+          >
+            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Create New...
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Profile
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Change Account
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
-          <IoSettingsOutline className="iconSideBar" /> 
-          <button
-              className="btn btn-toggle align-items-center rounded btnSideBar"
-              data-bs-toggle="collapse"
-              data-bs-target="#setting-collapse"
-              aria-expanded="true"
-            >
-              Settings
-            </button>
-            <div className="collapse show styleCollapse" id="setting-collapse">
-              <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Account Setting
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    View Profile
-                  </a>
-                </li>
-                <li>
-                  <a href="./index.js" className="link-light rounded">
-                    Product Setting
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </a>
+          <p
+            className="nav-link text-light linkSideBar"
+            onClick={(event) => handleButtonClick(event)}
+            data-bs-toggle="collapse"
+            data-bs-target="#setting-collapse"
+          >
+            <IoSettingsOutline className="iconSideBar" />
+            Settings
+            <RiArrowDropDownLine className="iconSideBar iconSideBarDrop" />
+          </p>
+          <div
+            className="collapse styleCollapse collapseStyle"
+            id="setting-collapse"
+          >
+            <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Account Setting
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  View Profile
+                </a>
+              </li>
+              <li>
+                <a href="./index.js" className="link-light rounded">
+                  Product Setting
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
+          <p
+            className="nav-link text-light linkSideBar"
+            onClick={(event) => handleButtonClick(event)}
+          >
             <i className="fas fa-chart-line"></i> Analytics
-          </a>
+          </p>
         </li>
         <li className="nav-item">
-          <a className="nav-link text-light" href="#">
+          <p
+            className="nav-link text-light linkSideBar"
+            onClick={(event) => handleButtonClick(event)}
+          >
             <i className="fas fa-sign-out-alt"></i> Logout
-          </a>
+          </p>
         </li>
       </ul>
     </div>
