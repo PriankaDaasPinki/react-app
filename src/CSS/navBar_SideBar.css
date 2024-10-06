@@ -41,10 +41,12 @@ body {
   margin: 0;
   display: flex;
   transition: background-color 0.2s, transform 0.2s;
+  cursor: pointer;
 }
 
 .nav-link:hover {
   background-color: #6685a3;
+  margin: 0.5rem 0 0 0;
 }
 
 /* Navbar */
@@ -148,6 +150,9 @@ body {
   justify-items: center;
   align-items: flex-start;
   padding: 0.7rem 0 0.7rem 3rem;
+  ul{
+    text-align: left;
+  }
 }
 
 .link-light:hover {
@@ -165,10 +170,6 @@ body {
   background-color: #6685a3;
   margin: 0.5rem 0 0 0;
 }
-
-/* #btnDashboard:active{
-  background-color: #6685a3;
-} */
 
 /* Nav Search bar */
 .search-bar {
