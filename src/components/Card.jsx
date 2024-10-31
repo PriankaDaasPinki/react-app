@@ -1,5 +1,4 @@
 import React from "react";
-// import "../CSS/style.css";
 
 export default function Card(props) {
   const { titleText: title, descriptionText: descripton, Image: image } = props;
@@ -21,9 +20,6 @@ export function Card2Cart(props) {
     <div className="card2 col-md-10">
       <div className="cardTitle">{title}</div>
       <div className="cardBody">{descripton}</div>
-      <div className="cardFooter">
-        Copyright<sup> © </sup>Prianka's World
-      </div>
     </div>
   );
 }

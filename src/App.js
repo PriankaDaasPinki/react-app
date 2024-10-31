@@ -9,10 +9,11 @@ import "./CSS/navBar_SideBar.css";
 import Data from "./data.jsx";
 // import Header from "./components/common_components/Header.jsx";
 // import Footer from "./components/common_components/Footer.jsx";
-
 import ProductList from "./components/ProductList.jsx";
 import Sidebar2 from "./components/Side_Bar/SideBar2.jsx";
 // import Sidebar from "./components/Side_Bar/Sidebar.jsx";
+import Users from "./components/Users.jsx";
+import Footer from "./components/common_components/Footer.jsx";
 
 
 const App = () => {
@@ -32,11 +33,9 @@ const App = () => {
       <div className="App">
         <Navbar2 toggleSidebar={toggleSidebar} />
         <Sidebar2 isSidebarOpen={isSidebarOpen} />
-        <div className="d-flex">          
+        <div className="d-flex">  
           <main className="flex-grow-1 p-4" id="main-content">
             <div className="pt-5 mt-5">
-              {" "}
-              {/* Padding to avoid navbar overlap */}
               <h1 className="display-4">
                 <Header textH="Product List" />
               </h1>
@@ -49,12 +48,13 @@ const App = () => {
               <hr />
               <main className="container mt-2">
                 <div className="row itemRow">{items}</div>
-                {/* <Header textH="" className="headingStyle" /> */}
                 <Card2Cart
                   titleText="List of Cart Product"
                   descriptionText={<ProductList productModule={Data} />}
                 />
               </main>
+              <Users />
+              <Footer />
             </div>
           </main>
         </div>
