@@ -220,3 +220,8 @@ input[type="submit"] {
     border-radius: 0% 30px 30px 15px;
   }
 }
+
+
+.logo{
+  width: 7rem;
+}

@@ -6,14 +6,14 @@ import Card, { cardHeader as Header, Card2Cart } from "./components/Card.jsx";
 // import Navbar from "./components/Nav_Bar/NavBar.jsx";
 import Navbar2 from "./components/Nav_Bar/NavBar2.jsx";
 import "./CSS/navBar_SideBar.css";
+import Data from "./data.jsx";
+// import Header from "./components/common_components/Header.jsx";
+// import Footer from "./components/common_components/Footer.jsx";
 
-// import Header from "./components/Header.js";
 import ProductList from "./components/ProductList.jsx";
 import Sidebar2 from "./components/Side_Bar/SideBar2.jsx";
 // import Sidebar from "./components/Side_Bar/Sidebar.jsx";
-import Data from "./data.jsx";
-// import productImage from "";
-// import Footer from './components/Footer.js/index.js';
+
 
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -31,8 +31,8 @@ const App = () => {
     <>
       <div className="App">
         <Navbar2 toggleSidebar={toggleSidebar} />
-        <div className="d-flex">
-          <Sidebar2 isSidebarOpen={isSidebarOpen} />
+        <Sidebar2 isSidebarOpen={isSidebarOpen} />
+        <div className="d-flex">          
           <main className="flex-grow-1 p-4" id="main-content">
             <div className="pt-5 mt-5">
               {" "}
@@ -59,25 +59,6 @@ const App = () => {
           </main>
         </div>
       </div>
-      {/* <div className="row">
-        <div className="col-md-2 pt-5">
-          <Navbar2 />
-          <Sidebar2 />
-        </div>
-        <div className="col-md-10">
-          <div className="row itemListContainer">
-            <Header textH="Product List" />
-            {items}
-          </div>
-          <main className="container mt-2">
-            <Header textH="List of Cart Product" />
-            <Card2Cart
-              titleText="Your Product"
-              descriptionText={<ProductList productModule={Data} />}
-            />
-          </main>
-        </div>
-      </div> */}
     </>
   );
 };

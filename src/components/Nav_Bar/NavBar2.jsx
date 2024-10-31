@@ -1,12 +1,15 @@
 import React from "react";
 import { GiWorld } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
+import logo from "../../images/logo-withOutBg.png";
+// import hello from "../../images/hello";
 
 const Navbar2 = ({ toggleSidebar }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark fixed-top">
       <div className="container-fluid">
         <a className="navbar-brand" href="./App.js">
+        <img src={logo} className="logo" alt="logoImage" />
           <GiWorld className="icon" /> Prianka's World
         </a>
         <button

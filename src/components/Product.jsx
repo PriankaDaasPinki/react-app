@@ -1,5 +1,5 @@
 import React from "react";
-import STATE from "./State/state";
+import Cart_to_buy from "./State/Cart_to_buy";
 
 const productNameStyle = {
   backgroundColor: "purple",
@@ -45,14 +45,8 @@ export default function Product(productListAll) {
       </div>
       <div className="col-md-3" style={quantityButtonStyle}>
         <div className="btn-group" role="group" aria-label="Basic example">
-        <STATE className="btn btn-danger" />
-          
-          {/* <button type="button" className="btn btn-primary">
-            {product.Quantity}
-          </button>
-          <button type="button" className="btn btn-success">
-            +
-          </button> */}
+          {/* className="btn btn-danger" */}
+          <Cart_to_buy />
         </div>
       </div>
       <div className="col-md-2" style={quantityButtonStyle}>
