@@ -14,7 +14,7 @@ export default function Users() {
   } = useUsers();
   return (
     <div className="pt-5">
-      <h1>User List</h1>
+      <h2>User List</h2>
       <form onSubmit={isEditing ? handleUpdate : handleCreate}>
         <div className="d-flex justify-content-between p-5">
           <div className="input-group">
@@ -65,12 +65,12 @@ export default function Users() {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td className="d-flex justify-content-evenly">
-                <button className="btn btn-warning" onClick={() => handleEdit(user)}>Edit</button>
+              <td className="align-middle">{user.id}</td>
+              <td className="align-middle">{user.name}</td>
+              <td className="align-middle">{user.email}</td>
+              <td className="align-middle">{user.phone}</td>
+              <td className="align-middle">
+                <button className="btn btn-warning me-2" onClick={() => handleEdit(user)}>Edit</button>
                 <button className="btn btn-danger" onClick={() => handleDelete(user.id)}>Delete</button>
               </td>
             </tr>

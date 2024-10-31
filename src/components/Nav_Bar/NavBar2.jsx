@@ -6,11 +6,16 @@ import logo from "../../images/logo-withOutBg.png";
 
 const Navbar2 = ({ toggleSidebar }) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark fixed-top">
-      <div className="container-fluid">
-        <a className="navbar-brand" href="./App.js">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark fixed-top p-0">
+      <div className="container-fluid p-0 pe-3">
         <img src={logo} className="logo" alt="logoImage" />
-          <GiWorld className="icon" /> Prianka's World
+        <a
+          className="navbar-brand d-flex align-items-center pe-4"
+          href="./App.js"
+        >
+          {/* <img src={logo} className="logo" alt="logoImage" /> */}
+          {/* <GiWorld className="icon" />  */}
+          <h2>Prianka's World</h2>
         </a>
         <button
           className="navbar-toggler"
@@ -82,7 +87,7 @@ const Navbar2 = ({ toggleSidebar }) => {
             /> */}
 
             <div class="search-bar">
-              <IoSearch className="search-icon"/>
+              <IoSearch className="search-icon" />
               <input
                 type="text"
                 name="search"
@@ -91,7 +96,6 @@ const Navbar2 = ({ toggleSidebar }) => {
                 autocomplete="on"
               />
             </div>
-
 
             {/* <img class="search-icon" src="https://darksoul-codepen.github.io/search-icon.png" /> */}
             {/* <button className="btn btn-outline-light" type="submit">

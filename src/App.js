@@ -15,7 +15,6 @@ import Sidebar2 from "./components/Side_Bar/SideBar2.jsx";
 import Users from "./components/Users.jsx";
 import Footer from "./components/common_components/Footer.jsx";
 
-
 const App = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const toggleSidebar = () => {
@@ -33,10 +32,10 @@ const App = () => {
       <div className="App">
         <Navbar2 toggleSidebar={toggleSidebar} />
         <Sidebar2 isSidebarOpen={isSidebarOpen} />
-        <div className="d-flex">  
+        <div className="d-flex">
           <main className="flex-grow-1 p-4" id="main-content">
             <div className="pt-5 mt-5">
-              <h1 className="display-4">
+              <h1>
                 <Header textH="Product List" />
               </h1>
               <p className="lead">
@@ -46,12 +45,16 @@ const App = () => {
                 Find the perfect match for your lifestyle today!
               </p>
               <hr />
-              <main className="container mt-2">
-                <div className="row itemRow">{items}</div>
-                <Card2Cart
-                  titleText="List of Cart Product"
-                  descriptionText={<ProductList productModule={Data} />}
-                />
+              <main className="container mt-2 p-0">
+                <div className="row justify-content-evenly m-0 mt-2">
+                  {items}
+                </div>
+                <div className="row justify-content-evenly m-0 mt-4 w-100">
+                  <Card2Cart
+                    titleText="List of Cart Product"
+                    descriptionText={<ProductList productModule={Data} />}
+                  />
+                </div>
               </main>
               <Users />
               <Footer />

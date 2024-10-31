@@ -54,7 +54,7 @@ const Sidebar2 = ({ isSidebarOpen }) => {
       }`}
     >
       {/* <h5 className="text-uppercase">Navigation</h5> */}
-      <ul className="nav flex-column pt-5">
+      <ul className="nav flex-column pt-2">
         <li className="nav-item">
           <p
             className="nav-link text-light"
