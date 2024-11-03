@@ -1,5 +1,5 @@
 import React from "react";
-import { Cart_to_buy as Cart } from "./State/Cart_to_buy";
+import { CartToBuy as Cart } from "./State/CartToBuy";
 
 const productNameStyle = {
   backgroundColor: "purple",

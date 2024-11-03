@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-export function Cart_to_buy() {
+export function CartToBuy() {
   const [quentityToBuy, setQuentityToBuy] = useState(0);
   const addItemInCart = () => {
     setQuentityToBuy((prevQuentity) => prevQuentity + 1);
