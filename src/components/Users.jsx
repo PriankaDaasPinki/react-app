@@ -13,10 +13,10 @@ export default function Users() {
     handleDelete,
   } = useUsers();
   return (
-    <div className="pt-5">
-      <h2>User List</h2>
+    <div className="w-100">
+      {/* <h2>User List</h2> */}
       <form onSubmit={isEditing ? handleUpdate : handleCreate}>
-        <div className="d-flex justify-content-between p-5">
+        <div className="d-flex justify-content-between p-5 pt-0">
           <div className="input-group">
             <input
               type="text"
