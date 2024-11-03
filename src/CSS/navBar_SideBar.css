@@ -66,14 +66,6 @@ body {
   color: white;
 }
 
-/* .dropdown-menu[data-bs-popper]{
-  margin-left: 2rem;
-} */
-
-/* .dropdown-menu:hover {
-  background-color: #2c3e50;
-  transform: scale(1.05);
-} */
 
 .navbar-brand i {
   color: #ecf0f1;
@@ -219,4 +211,9 @@ input[type="submit"] {
     width: 80%;
     border-radius: 0% 30px 30px 15px;
   }
+}
+
+
+.logo{
+  width: 7rem;
 }

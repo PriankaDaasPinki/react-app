@@ -49,12 +49,12 @@ const Sidebar2 = ({ isSidebarOpen }) => {
   return (
     <div
       id="sidebar"
-      className={`bg-gradient-dark text-light p-4 flex-column vh-100 position-fixed ${
+      className={`bg-gradient-dark text-light p-4 pt-5 flex-column vh-100 position-fixed ${
         isSidebarOpen ? "active" : ""
       }`}
     >
       {/* <h5 className="text-uppercase">Navigation</h5> */}
-      <ul className="nav flex-column">
+      <ul className="nav flex-column pt-2">
         <li className="nav-item">
           <p
             className="nav-link text-light"
