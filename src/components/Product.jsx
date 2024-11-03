@@ -1,5 +1,5 @@
 import React from "react";
-import Cart_to_buy from "./State/Cart_to_buy";
+import { Cart_to_buy as Cart } from "./State/Cart_to_buy";
 
 const productNameStyle = {
   backgroundColor: "purple",
@@ -37,7 +37,10 @@ export default function Product(productListAll) {
   return (
     <div className="row align-items-center pb-3 ps-4 pe-4">
       <div className="col-md-4 p-0">
-        <div className="d-flex justify-content-evenly align-items-center" style={productNameStyle}>
+        <div
+          className="d-flex justify-content-evenly align-items-center"
+          style={productNameStyle}
+        >
           <img style={productImage} src={product.Image} alt="productImage" />
           <p className="m-0">{product.Name}</p>
           <span className="badge text-bg-secondary">৳ {product.Price}</span>
@@ -46,7 +49,7 @@ export default function Product(productListAll) {
       <div className="col-md-3" style={quantityButtonStyle}>
         <div className="btn-group" role="group" aria-label="Basic example">
           {/* className="btn btn-danger" */}
-          <Cart_to_buy />
+          <Cart />
         </div>
       </div>
       <div className="col-md-3 p-0" style={quantityButtonStyle}>
