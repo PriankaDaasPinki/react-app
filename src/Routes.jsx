@@ -5,17 +5,21 @@ import Home from "./pages/Home";
 import CART from "./pages/CART";
 import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
+import AddUser from "./pages/AddUser";
+import UserDetails from "./pages/UserDetails";
 
 const RoutesAll = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="*" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/cart" element={<CART />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/add-user" element={<AddUser />} />
+        <Route path="/user-details/:id" element={<UserDetails />} />
       </Routes>
     </Router>
   );

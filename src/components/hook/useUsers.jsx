@@ -1,14 +1,14 @@
 // src/useUsers.js
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const useUsers = () => {
   const [users, setUsers] = useState([]);
-  const [userForm, setUserForm] = useState({ name: '', email: '', phone: '' });
+  const [userForm, setUserForm] = useState({ name: "", email: "", phone: "" });
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
 
-  const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+  const apiUrl = "https://jsonplaceholder.typicode.com/users";
 
   // Fetch users on mount
   useEffect(() => {
@@ -28,7 +28,8 @@ const useUsers = () => {
     e.preventDefault();
     const response = await axios.post(apiUrl, userForm);
     setUsers([...users, response.data]);
-    setUserForm({ name: '', email: '', phone: '' });
+    setUserForm({ name: "", email: "", phone: "" });
+    alert("Added  " + response.data.name);
   };
 
   const handleEdit = (user) => {
@@ -41,7 +42,7 @@ const useUsers = () => {
     e.preventDefault();
     const response = await axios.put(`${apiUrl}/${editId}`, userForm);
     setUsers(users.map((user) => (user.id === editId ? response.data : user)));
-    setUserForm({ name: '', email: '', phone: '' });
+    setUserForm({ name: "", email: "", phone: "" });
     setIsEditing(false);
     setEditId(null);
   };

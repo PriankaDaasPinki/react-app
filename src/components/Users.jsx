@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import useUsers from "./hook/useUsers";
+import "../CSS/userStyle.css";
+import { MdDelete, MdModeEditOutline } from "react-icons/md";
+import { Link, useNavigate } from "react-router-dom";
+import { GrView } from "react-icons/gr";
 
 export default function Users() {
   const {
@@ -12,10 +16,36 @@ export default function Users() {
     handleUpdate,
     handleDelete,
   } = useUsers();
+
+  const navigate = useNavigate();
+  const handleView = (user) => {
+    navigate(`/user-details/${user.id}`);
+  };
+
+  // Filter data based on search term
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredData = users.filter((user) =>
+    user.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="w-100">
       {/* <h2>User List</h2> */}
-      <form onSubmit={isEditing ? handleUpdate : handleCreate}>
+      <div className="mb-5">
+        <Link className="btn btn-success" to="/add-user">
+          Create New User
+        </Link>
+      </div>
+
+      <input
+        type="text"
+        placeholder="Search by name"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        className="userSearch"
+      />
+
+      {/* <form onSubmit={isEditing ? handleUpdate : handleCreate}>
         <div className="d-flex justify-content-between p-5 pt-0">
           <div className="input-group">
             <input
@@ -50,9 +80,9 @@ export default function Users() {
             </button>
           </div>
         </div>
-      </form>
+      </form> */}
 
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">SL</th>
@@ -63,15 +93,31 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {filteredData.map((user, index) => (
             <tr key={user.id}>
-              <td className="align-middle">{user.id}</td>
+              <td className="align-middle">{index + 1}</td>
               <td className="align-middle">{user.name}</td>
               <td className="align-middle">{user.email}</td>
               <td className="align-middle">{user.phone}</td>
               <td className="align-middle">
-                <button className="btn btn-warning me-2" onClick={() => handleEdit(user)}>Edit</button>
-                <button className="btn btn-danger" onClick={() => handleDelete(user.id)}>Delete</button>
+                <button
+                  className="btn btn-primary me-2"
+                  onClick={() => handleView(user)}
+                >
+                  <GrView />
+                </button>
+                <button
+                  className="btn btn-warning me-2"
+                  onClick={() => handleEdit(user)}
+                >
+                  <MdModeEditOutline />
+                </button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => handleDelete(user.id)}
+                >
+                  <MdDelete />
+                </button>
               </td>
             </tr>
           ))}

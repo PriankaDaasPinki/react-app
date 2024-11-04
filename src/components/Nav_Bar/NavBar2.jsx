@@ -86,14 +86,14 @@ const Navbar2 = ({ toggleSidebar }) => {
             </li>
           </ul>
           <form className="d-flex">
-            <div class="search-bar">
+            <div className="search-bar">
               <IoSearch className="search-icon" />
               <input
                 type="text"
                 name="search"
                 placeholder="Search on Prianka's World"
-                class="search-input"
-                autocomplete="on"
+                className="search-input"
+                autoComplete="on"
               />
             </div>
 

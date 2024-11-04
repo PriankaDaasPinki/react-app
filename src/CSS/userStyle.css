@@ -1,0 +1,15 @@
+.userSearch {
+  margin: 0 2rem 3rem;
+  padding: 0.5rem 2rem;
+  width: 95%;
+  border: 1px solid black;
+  border-radius: 25rem;
+  display: block;
+}
+
+.userSearch:focus {
+  /* border-color: #86b7fe; */
+  outline: 0;
+  border: none;
+  box-shadow: 0 0 5px 0.25rem gray;
+}
