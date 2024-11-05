@@ -19,6 +19,8 @@ const RoutesAll = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/add-user" element={<AddUser />} />
+        {/* <Route path="/edit-user/:id" element={<AddUser />} /> */}
+        <Route path="/edit-user/:id" element={<AddUser editMode />} /> {/* Passing `editMode` prop */}
         <Route path="/user-details/:id" element={<UserDetails />} />
       </Routes>
     </Router>

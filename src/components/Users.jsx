@@ -4,22 +4,18 @@ import "../CSS/userStyle.css";
 import { MdDelete, MdModeEditOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { GrView } from "react-icons/gr";
+import Pagination from "./Pagination";
 
 export default function Users() {
-  const {
-    users,
-    userForm,
-    isEditing,
-    handleChange,
-    handleCreate,
-    handleEdit,
-    handleUpdate,
-    handleDelete,
-  } = useUsers();
+  const { users, handleDelete } = useUsers();
 
   const navigate = useNavigate();
   const handleView = (user) => {
     navigate(`/user-details/${user.id}`);
+  };
+
+  const handleEditSend = (user) => {
+    navigate(`/edit-user/${user.id}`);
   };
 
   // Filter data based on search term
@@ -27,6 +23,18 @@ export default function Users() {
   const filteredData = users.filter((user) =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const usersPerPage = 5;
+  // Calculate the current page users
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUsers = filteredData.slice(indexOfFirstUser, indexOfLastUser);
+  // const currentUsers = users.slice(indexOfFirstUser, indexOfLastUser);
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="w-100">
@@ -37,13 +45,29 @@ export default function Users() {
         </Link>
       </div>
 
-      <input
-        type="text"
-        placeholder="Search by name"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="userSearch"
-      />
+      <div className="d-flex">
+        <input
+          type="text"
+          placeholder="Search by name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="userSearch"
+        />
+        <input
+          type="text"
+          placeholder="Search by email"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="userSearch"
+        />
+        <input
+          type="text"
+          placeholder="Search by phone"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="userSearch"
+        />
+      </div>
 
       {/* <form onSubmit={isEditing ? handleUpdate : handleCreate}>
         <div className="d-flex justify-content-between p-5 pt-0">
@@ -82,7 +106,7 @@ export default function Users() {
         </div>
       </form> */}
 
-      <table className="table">
+      <table className="table bg-none">
         <thead>
           <tr>
             <th scope="col">SL</th>
@@ -93,7 +117,7 @@ export default function Users() {
           </tr>
         </thead>
         <tbody>
-          {filteredData.map((user, index) => (
+          {currentUsers.map((user, index) => (
             <tr key={user.id}>
               <td className="align-middle">{index + 1}</td>
               <td className="align-middle">{user.name}</td>
@@ -108,13 +132,13 @@ export default function Users() {
                 </button>
                 <button
                   className="btn btn-warning me-2"
-                  onClick={() => handleEdit(user)}
+                  onClick={() => handleEditSend(user)}
                 >
                   <MdModeEditOutline />
                 </button>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handleDelete(user.id)}
+                  onClick={() => handleDelete(user.id, user.name)}
                 >
                   <MdDelete />
                 </button>
@@ -123,18 +147,17 @@ export default function Users() {
           ))}
         </tbody>
       </table>
+
+      {filteredData.length > 5 ? (
+        <div>
+          <Pagination
+            usersPerPage={usersPerPage}
+            totalUsers={users.length}
+            currentPage={currentPage}
+            paginate={paginate}
+          />
+        </div>
+      ) : null}
     </div>
   );
 }
-
-// {users.map((user) => (
-//     <>
-//       <li key={user.id}>
-//         <span>
-//           {user.name} - {user.email} - {user.phone}
-//         </span>
-//         <button onClick={() => handleEdit(user)}>Edit</button>
-//         <button onClick={() => handleDelete(user.id)}>Delete</button>
-//       </li>
-//     </>
-//   ))}

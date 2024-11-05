@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { cardHeader as Header } from "../components/Card";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { FaRegListAlt } from "react-icons/fa";
+import { showLoadingAlert } from "../components/common_components/Loader";
 
 export default function UserDetails() {
   const { id } = useParams(); // Get the `id` parameter from the URL
@@ -9,6 +11,7 @@ export default function UserDetails() {
   // Fetch user details using the `name` parameter
   useEffect(() => {
     const fetchUserDetails = async () => {
+      showLoadingAlert();
       try {
         // Assuming you have an endpoint to fetch user details by name
         const response = await axios.get(
@@ -39,11 +42,19 @@ export default function UserDetails() {
         </p>
         <hr />
         <main className="container mt-2 p-0">
-          <div className="d-flex flex-column align-items-center justify-content-center mb-3 mt-4">
-            <p className="m-0 pe-3 p-0">Profile of</p>
-            <h2 className="m-0"> {getUser.name}</h2>
+          <div className="d-flex align-self-end">
+            <Link className="btn btn-primary" to="/users">
+            <FaRegListAlt />
+              {/* Users */}
+            </Link>
           </div>
-          <div className="row justify-content-evenly m-0 mt-4 w-50 border p-5 rounded">
+          <div className="d-flex justify-content-between mb-3">
+            <div className="d-flex flex-column align-items-center justify-content-center mb-3 mt-4">
+              <p className="m-0 pe-3 p-0">Profile of</p>
+              <h2 className="m-0"> {getUser.name}</h2>
+            </div>
+          </div>
+          <div className="row justify-content-evenly m-0 mt-4 w-50 border p-5 rounded bg-light">
             <div className="row d-flex align-items-center justify-content-center pb-3">
               <div className="col-md-5 d-flex align-items-center justify-content-between">
                 <strong>ID</strong>
@@ -80,26 +91,28 @@ export default function UserDetails() {
                 {getUser.email}
               </div>
             </div>
-            <div className="row d-flex align-items-center justify-content-center pb-3">
-              <div className="col-md-5 d-flex align-items-center justify-content-between">
+            <div className="row pb-3">
+              <div className="col-md-5 d-flex justify-content-between">
                 <strong>Address</strong>
                 <strong>:</strong>
               </div>
-              <div className="col-md-7 d-flex align-items-left pe-0 m-0">
-                {getUser.address.street}, &nbsp; {getUser.address.suite}, &nbsp;
-                {getUser.address.city}, &nbsp; {getUser.address.zipcode}
+              <div className="col-md-7 pe-0 m-0">
+                <p className="m-0 text-start">
+                  {getUser.address.street}, {getUser.address.suite},<br />
+                  {getUser.address.city}, {getUser.address.zipcode}
+                </p>
               </div>
             </div>
-            <div className="row d-flex align-items-center justify-content-center pb-3">
-              <div className="col-md-5 d-flex align-items-center justify-content-between">
+            <div className="row pb-3">
+              <div className="col-md-5 d-flex justify-content-between">
                 <strong>GEO Location</strong>
                 <strong>:</strong>
               </div>
-              <div className="col-md-7 d-flex align-items-left">
+              <div className="col-md-7">
                 <p className="m-0 text-start">
                   LAT : &nbsp; {getUser.address.geo.lat}
                 </p>
-                <p className="m-0">LNG : &nbsp; {getUser.address.geo.lng}</p>
+                <p className="m-0 text-start">LNG : &nbsp; {getUser.address.geo.lng}</p>
               </div>
             </div>
             <div className="row d-flex align-items-center justify-content-center pb-3">
@@ -129,21 +142,21 @@ export default function UserDetails() {
                 {getUser.company.name}
               </div>
             </div>
-            <div className="row d-flex align-items-center justify-content-center pb-3">
-              <div className="col-md-5 d-flex align-items-center justify-content-between">
+            <div className="row d-flex justify-content-center pb-3">
+              <div className="col-md-5 d-flex justify-content-between">
                 <strong>Company Phrase</strong>
                 <strong>:</strong>
               </div>
-              <div className="col-md-7 d-flex align-items-left">
+              <div className="col-md-7">
                 <p className="text-start m-0">{getUser.company.catchPhrase}</p>
               </div>
             </div>
-            <div className="row d-flex align-items-center justify-content-center">
-              <div className="col-md-5 d-flex align-items-center justify-content-between">
+            <div className="row">
+              <div className="col-md-5 d-flex justify-content-between">
                 <strong>Based On</strong>
                 <strong>:</strong>
               </div>
-              <div className="col-md-7 d-flex align-items-left">
+              <div className="col-md-7">
                 <p className="text-start m-0">{getUser.company.bs}</p>
               </div>
             </div>

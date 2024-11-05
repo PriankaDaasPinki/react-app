@@ -1,24 +1,78 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useUsers from "../components/hook/useUsers";
 import { cardHeader as Header } from "../components/Card";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { FaRegListAlt } from "react-icons/fa";
 
-const AddUser = () => {
-  const { userForm, handleChange, isEditing, handleCreate, handleUpdate } =
-    useUsers();
+const AddUser = ({ editMode = false }) => {
+  const {
+    userForm,
+    handleChange,
+    handleEdit,
+    isEditing,
+    handleCreate,
+    handleUpdate,
+  } = useUsers();
   const navigate = useNavigate();
 
+  const apiUrl = "https://jsonplaceholder.typicode.com/users";
+
+  const { id } = useParams(); // Get the `id` parameter from the URL
+
+  // Fetch user details if editing
+  useEffect(() => {
+    if (editMode && id) {
+      const fetchUser = async () => {
+        try {
+          const response = await axios.get(`${apiUrl}/${id}`);
+          handleEdit(response.data);
+        } catch (error) {
+          console.error("Error fetching user details:", error);
+        }
+      };
+      fetchUser();
+    }
+    // eslint-disable-next-line
+  }, [editMode, id]);
+
   const onSubmit = async (e) => {
-    await handleCreate(e);
-    navigate("/users"); // Redirect to the users list page
+    e.preventDefault();
+
+    try {
+      if (editMode) {
+        // Update existing user
+        await axios.put(`${apiUrl}/${id}`, userForm);
+        toast.success("User updated successfully!");
+      } else {
+        // Create new user
+        // await axios.post(apiUrl, userForm);
+        // toast.success('User added successfully!');
+        await handleCreate(e);
+        toast.success("User added successfully!");
+        navigate("/users"); // Redirect to the users list page
+      }
+      navigate("/users");
+    } catch (error) {
+      console.error("Error saving user data:", error);
+      toast.error("Failed to save user data.");
+    }
   };
+
+  // Display a loading state while fetching data
+  // if (!editUser) return 0;
 
   return (
     <main className="flex-grow-1 p-4 pb-0" id="main-content">
       <div className="pt-5 mt-5">
         <h1>
-          <Header textH="Add A New User" />
+          {editMode ? (
+            <Header textH="Edit User" />
+          ) : (
+            <Header textH="Add A New User" />
+          )}
         </h1>
         <p className="lead">
           Access a comprehensive list of users with options to update roles,
@@ -27,7 +81,13 @@ const AddUser = () => {
         </p>
         <hr />
         <main className="container mt-2 p-0">
-          <div className="row justify-content-evenly m-0 mt-4 w-50">
+          <div className="d-flex align-self-end">
+            <Link className="btn btn-primary" to="/users">
+              <FaRegListAlt />
+              {/* Users */}
+            </Link>
+          </div>
+          <div className="row justify-content-evenly m-0 w-50">
             <Form onSubmit={isEditing ? handleUpdate : onSubmit}>
               <Form.Group className="mb-4 text-start" controlId="userName">
                 <Form.Label>Name</Form.Label>
@@ -37,6 +97,7 @@ const AddUser = () => {
                   placeholder="User Name"
                   value={userForm.name}
                   onChange={handleChange}
+                  required
                 />
               </Form.Group>
 
@@ -48,13 +109,14 @@ const AddUser = () => {
                   placeholder="Enter email"
                   value={userForm.email}
                   onChange={handleChange}
+                  required
                 />
               </Form.Group>
 
               <Form.Group className="mb-5 text-start" controlId="phone">
                 <Form.Label>Phone Number</Form.Label>
                 <Form.Control
-                  type="number"
+                  type="text"
                   name="phone"
                   placeholder="Phone Number"
                   value={userForm.phone}
