@@ -36,6 +36,14 @@ export default function Users() {
   // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
+  //Try to receive number from pagination
+  const [page,setPage] = useState(0);
+  const pageNumber = (page) => {
+    setPage(page);
+  }
+
+  console.log('pageNumber' + page);
+
   return (
     <div className="w-100">
       {/* <h2>User List</h2> */}
@@ -53,7 +61,7 @@ export default function Users() {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="userSearch"
         />
-        <input
+        {/* <input
           type="text"
           placeholder="Search by email"
           value={searchTerm}
@@ -66,7 +74,7 @@ export default function Users() {
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="userSearch"
-        />
+        /> */}
       </div>
 
       {/* <form onSubmit={isEditing ? handleUpdate : handleCreate}>
@@ -119,7 +127,7 @@ export default function Users() {
         <tbody>
           {currentUsers.map((user, index) => (
             <tr key={user.id}>
-              <td className="align-middle">{index + 1}</td>
+              <td className="align-middle">{(page-1)*5+ (index + 1)}</td>
               <td className="align-middle">{user.name}</td>
               <td className="align-middle">{user.email}</td>
               <td className="align-middle">{user.phone}</td>
@@ -155,6 +163,7 @@ export default function Users() {
             totalUsers={users.length}
             currentPage={currentPage}
             paginate={paginate}
+            onPageNumber = {pageNumber}
           />
         </div>
       ) : null}
