@@ -27,17 +27,17 @@ const Sidebar2 = ({ isSidebarOpen }) => {
   const handleButtonClick = (event) => {
     //All dropdown can active at a time
     event.currentTarget.classList.toggle("activeItem");
-    const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
-    iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
+    const iconElement = event.currentTarget.querySelector(".iconSideBarDrop");
+    iconElement && iconElement.classList.toggle("iconSideBarDropArrow");
 
     //One dropdown can active at a time
-      // const selectAllActive = document.querySelectorAll(".activeItem");
-      // selectAllActive.forEach((active) => {
-      //   active.classList.remove("activeItem");
-      // });
-      // event.currentTarget.classList.add("activeItem");
-      // const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
-      // iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
+    // const selectAllActive = document.querySelectorAll(".activeItem");
+    // selectAllActive.forEach((active) => {
+    //   active.classList.remove("activeItem");
+    // });
+    // event.currentTarget.classList.add("activeItem");
+    // const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
+    // iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
 
     // if (iconElement) {
     //   iconElement.classList.toggle('iconSideBarDropArrow'); // Toggle a class (for example, rotate it)
@@ -209,6 +209,24 @@ const Sidebar2 = ({ isSidebarOpen }) => {
             <i className="fas fa-chart-line"></i> Analytics
           </p>
         </li>
+
+        {/* for mobile  */}
+        <li className="nav-item sideItemMobile">
+          <a className="nav-link" href="/contact-us">
+            Contact
+          </a>
+        </li>
+        <li className="nav-item sideItemMobile">
+          <a className="nav-link" href="/cart">
+            Cart
+          </a>
+        </li>
+        <li className="nav-item sideItemMobile">
+          <a className="nav-link" href="/about-us">
+            About
+          </a>
+        </li>
+
         <li className="nav-item">
           <p
             className="nav-link text-light linkSideBar"

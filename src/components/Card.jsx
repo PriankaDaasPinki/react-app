@@ -16,8 +16,7 @@ export default function Card(props) {
   );
 }
 
-export function Card2Cart(props) {
-  const { titleText: title, descriptionText: descripton } = props;
+export function Card2Cart({ titleText: title, descriptionText: descripton }) {
   return (
     <div className="card2 col-md-11">
       <div className="cardTitle fs-4">{title}</div>

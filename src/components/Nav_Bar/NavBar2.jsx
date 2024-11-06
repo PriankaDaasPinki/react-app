@@ -8,26 +8,30 @@ import logo from "../../images/logo-withOutBg.png";
 const Navbar2 = ({ toggleSidebar }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark fixed-top p-0">
-      <div className="container-fluid p-0 pe-3">
-        <img src={logo} className="logo" alt="logoImage" />
-        <a
-          className="navbar-brand d-flex align-items-center pe-4"
-          href="./App.js"
-        >
-          {/* <img src={logo} className="logo" alt="logoImage" /> */}
-          {/* <GiWorld className="icon" />  */}
-          <h2>Prianka's World</h2>
-        </a>
-        <button
-          className="navbar-toggler"
-          type="button"
-          onClick={toggleSidebar}
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
+      <div className="container-fluid p-0 pe-3 justify-content-evenly w-100">
+        <div className="d-flex justify-content-between navMobile">
+          <img src={logo} className="logo" alt="logoImage" />
+          <a
+            className="navbar-brand d-flex align-items-center"
+            href="./App.js"
+          >
+            {/* <img src={logo} className="logo" alt="logoImage" /> */}
+            {/* <GiWorld className="icon" />  */}
+            <h2>Prianka's World</h2>
+          </a>
+          <div className="d-flex align-items-center">
+            <button
+              className="navbar-toggler"
+              type="button"
+              onClick={toggleSidebar}
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+          </div>
+        </div>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
