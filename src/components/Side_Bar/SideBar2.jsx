@@ -212,6 +212,11 @@ const Sidebar2 = ({ isSidebarOpen }) => {
 
         {/* for mobile  */}
         <li className="nav-item sideItemMobile">
+          <a className="nav-link" href="/users">
+            Users
+          </a>
+        </li>
+        <li className="nav-item sideItemMobile">
           <a className="nav-link" href="/contact-us">
             Contact
           </a>

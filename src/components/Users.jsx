@@ -114,6 +114,7 @@ export default function Users() {
         </div>
       </form> */}
 
+      <div className="table-responsive">
       <table className="table bg-none">
         <thead>
           <tr>
@@ -127,11 +128,11 @@ export default function Users() {
         <tbody>
           {currentUsers.map((user, index) => (
             <tr key={user.id}>
-              <td className="align-middle">{(page-1)*5+ (index + 1)}</td>
-              <td className="align-middle">{user.name}</td>
-              <td className="align-middle">{user.email}</td>
-              <td className="align-middle">{user.phone}</td>
-              <td className="align-middle">
+              <td className="align-middle text-nowrap">{(page-1)*5+ (index + 1)}</td>
+              <td className="align-middle text-nowrap">{user.name}</td>
+              <td className="align-middle text-nowrap">{user.email}</td>
+              <td className="align-middle text-nowrap">{user.phone}</td>
+              <td className="align-middle text-nowrap">
                 <button
                   className="btn btn-primary me-2"
                   onClick={() => handleView(user)}
@@ -155,6 +156,7 @@ export default function Users() {
           ))}
         </tbody>
       </table>
+      </div>
 
       {filteredData.length > 5 ? (
         <div>

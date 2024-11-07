@@ -10,7 +10,18 @@ export const clipText = (text, maxLength) => {
 // {clipText(product.description, 50)}
 
 export default function Card(props) {
-  const { titleText: title, descriptionText: descripton, Image: image } = props;
+  const item = props.item;
+  const {
+    id,
+    Name: title,
+    Model: model,
+    Price: price,
+    Image: image,
+    Year: year,
+    Description: descripton,
+    Quantity: quentity,
+  } = item;
+  //here Name, Description, Image is according to data.js object
   return (
     <div className="Card col-sm-5 col-md-2">
       <img className="productImageCart" src={image} alt="cartImageOfProduct" />
@@ -23,19 +34,28 @@ export default function Card(props) {
           <Button
             className="btn btn-primary m-3"
             data-bs-toggle="modal"
-            data-bs-target="#productDetailsModal"
+            data-bs-target={"#productDetailsModal" + id}
           >
             Details
           </Button>
         </div>
       </div>
       <div
-        id="productDetailsModal"
+        id={"productDetailsModal" + id}
         className="modal fade w-100"
         tabIndex={-1}
         aria-hidden="true"
       >
-        <ProductDetailsModal image={image} title={title} descripton={descripton} />
+        <ProductDetailsModal
+          id={id}
+          title={title}
+          model={model}
+          price={price}
+          image={image}
+          year={year}
+          descripton={descripton}
+          quentity={quentity}
+        />
       </div>
     </div>
   );
