@@ -4,6 +4,8 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
 import { VscAccount } from "react-icons/vsc";
+// import UserRegister from "../../pages/Registration_and_Login/UserRegister";
+
 
 const Sidebar2 = ({ isSidebarOpen }) => {
   // const [isDropdownOpen, setIsDropdownOpen] = useState(true);
@@ -29,6 +31,7 @@ const Sidebar2 = ({ isSidebarOpen }) => {
     event.currentTarget.classList.toggle("activeItem");
     const iconElement = event.currentTarget.querySelector(".iconSideBarDrop");
     iconElement && iconElement.classList.toggle("iconSideBarDropArrow");
+    // event.currentTarget.id === "currentTarget" && (() => {return<Link to={/register} />});
 
     //One dropdown can active at a time
     // const selectAllActive = document.querySelectorAll(".activeItem");
@@ -150,7 +153,7 @@ const Sidebar2 = ({ isSidebarOpen }) => {
           >
             <ul className="btn-toggle-nav list-unstyled fw-normal pb-1 small">
               <li>
-                <a href="./index.js" className="link-light rounded">
+                <a href="./registration" className="link-light rounded">
                   Create New...
                 </a>
               </li>
@@ -238,6 +241,15 @@ const Sidebar2 = ({ isSidebarOpen }) => {
             onClick={(event) => handleButtonClick(event)}
           >
             <i className="fas fa-sign-out-alt"></i> Logout
+          </p>
+        </li>
+        <li className="nav-item">
+          <p
+            className="nav-link text-light linkSideBar"
+            id="register"
+            onClick={(event) => handleButtonClick(event)}
+          >
+            <i className="fas fa-sign-out-alt"></i> Register
           </p>
         </li>
       </ul>

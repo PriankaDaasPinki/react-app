@@ -7,6 +7,7 @@ import ContactUs from "./pages/ContactUs";
 import AboutUs from "./pages/AboutUs";
 import AddUser from "./pages/AddUser";
 import UserDetails from "./pages/UserDetails";
+import UserRegister from "./pages/Registration_and_Login/UserRegister";
 
 const RoutesAll = () => {
   return (
@@ -22,6 +23,8 @@ const RoutesAll = () => {
         {/* <Route path="/edit-user/:id" element={<AddUser />} /> */}
         <Route path="/edit-user/:id" element={<AddUser editMode />} /> {/* Passing `editMode` prop */}
         <Route path="/user-details/:id" element={<UserDetails />} />
+        <Route path="/registration" element={<UserRegister />} />
+
       </Routes>
     </Router>
   );
