@@ -4,49 +4,14 @@ import { IoSettingsOutline } from "react-icons/io5";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { RxDashboard } from "react-icons/rx";
 import { VscAccount } from "react-icons/vsc";
-// import UserRegister from "../../pages/Registration_and_Login/UserRegister";
 
 
 const Sidebar2 = ({ isSidebarOpen }) => {
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-
-  // Toggle the dropdown state
-  // const toggleDropdown = () => {
-  //   setIsDropdownOpen(!isDropdownOpen);
-  // };
-
-  // const navLink = document.querySelectorAll('.nav-link');
-  // const navLinkToRemove = document.querySelectorAll('.active');
-
-  // navLink.forEach(navLink => {
-  //   navLink.addEventListener('click',() => {
-  //     // document.querySelectorAll('activeItem')?.classList.remove('activeItem');
-  //     navLink.classList.add('activeItem');
-  //     // navLink.classList.remove('active');
-  //   });
-  // });
-
   const handleButtonClick = (event) => {
     //All dropdown can active at a time
     event.currentTarget.classList.toggle("activeItem");
     const iconElement = event.currentTarget.querySelector(".iconSideBarDrop");
     iconElement && iconElement.classList.toggle("iconSideBarDropArrow");
-    // event.currentTarget.id === "currentTarget" && (() => {return<Link to={/register} />});
-
-    //One dropdown can active at a time
-    // const selectAllActive = document.querySelectorAll(".activeItem");
-    // selectAllActive.forEach((active) => {
-    //   active.classList.remove("activeItem");
-    // });
-    // event.currentTarget.classList.add("activeItem");
-    // const iconElement = event.currentTarget.querySelector('.iconSideBarDrop');
-    // iconElement && iconElement.classList.toggle('iconSideBarDropArrow');
-
-    // if (iconElement) {
-    //   iconElement.classList.toggle('iconSideBarDropArrow'); // Toggle a class (for example, rotate it)
-    // }
-    // iconElement.classList.toggle("iconSideBarDropArrow");
-    // transform: isDropdownOpen ? "rotate(180deg)" : "rotate(0deg)"
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 // import { GiWorld } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import logo from "../../images/logo-withOutBg.png";
+import { NavLink } from "react-router-dom";
 // import { Link } from "react-router-dom";
 // import hello from "../../images/hello";
 
@@ -21,7 +22,7 @@ const Navbar2 = ({ toggleSidebar }) => {
           </a>
           <div className="d-flex align-items-center">
             <button
-              className="navbar-toggler"
+              className="navbar-toggler m-0"
               type="button"
               onClick={toggleSidebar}
               aria-controls="navbarNav"
@@ -35,21 +36,21 @@ const Navbar2 = ({ toggleSidebar }) => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link" aria-current="page" href="/home">
+              <NavLink className="nav-link" aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item dropdown">
-              <a
+              <NavLink
                 className="nav-link dropdown-toggle"
-                href="/home"
+                to="/home"
                 id="navbarDropdown"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
                 Services
-              </a>
+              </NavLink>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <a className="dropdown-item" href="/home">
@@ -69,27 +70,27 @@ const Navbar2 = ({ toggleSidebar }) => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/users">
+              <NavLink className="nav-link" to="/users">
                 Users
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/cart">
+              <NavLink className="nav-link" to="/cart">
                 Cart
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about-us">
+              <NavLink className="nav-link" to="/about-us">
                 About
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/contact-us">
+              <NavLink className="nav-link" to="/contact-us">
                 Contact
-              </a>
+              </NavLink>
             </li>
           </ul>
-          <form className="d-flex">
+          <form className="d-flex flex-grow-0 align-items-center mt-3">
             <div className="search-bar">
               <IoSearch className="search-icon" />
               <input
