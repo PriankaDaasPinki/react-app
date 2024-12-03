@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import Zoom from 'react-medium-image-zoom'
 // import ImageZoom from "react-image-zooom";
-import ReactImageMagnify from "react-image-magnify";
+// import ReactImageMagnify from "react-image-magnify";
 
 import "../../CSS/ModalsStyle/ProductDetailsModal.css";
 
@@ -39,13 +39,13 @@ function ProductDetailsModal({
         </div>
         <div className="modal-body row">
           <div className="col-md-6 p-0">
-            {/* <img
+            <img
               className="img-fluid productImage"
               src={imageColor}
               alt="ProductImage"
               zoom="200"
-            /> */}
-            <ReactImageMagnify
+            />
+            {/* <ReactImageMagnify
               {...{
                 smallImage: {
                   alt: "ProductImage",
@@ -58,7 +58,7 @@ function ProductDetailsModal({
                   height: 900,
                 },
               }}
-            />
+            /> */}
           </div>
           <div className="col-md-6">
             <h3 className="modal-title d-flex justify-content-center">

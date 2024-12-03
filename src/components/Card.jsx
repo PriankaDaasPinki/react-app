@@ -21,6 +21,7 @@ export default function Card(props) {
     Description: descripton,
     Quantity: quentity,
   } = item;
+  
   //here Name, Description, Image is according to data.js object
   return (
     <div className="Card col-sm-5 col-md-2">

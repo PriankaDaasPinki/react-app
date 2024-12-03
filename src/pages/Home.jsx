@@ -5,8 +5,6 @@ import Data from "../data.jsx";
 export default function Home() {
   let items = [];
   items = Data.map((item) => {
-    // const { id, Name: name, Description: des, Image: img } = item;
-    // return <Card key={id} titleText={name} descriptionText={des} Image={img} />;
     return <Card key={item.id} item={item} />;
 
   });
